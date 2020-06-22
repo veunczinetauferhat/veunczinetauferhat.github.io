@@ -1,0 +1,5 @@
+function dextendstrock (tojregexp, tojstring)
+{
+	
+	
+}
