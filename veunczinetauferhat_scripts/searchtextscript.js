@@ -15,7 +15,7 @@ class Doublarz
 async function searchtextscriptarray(tojregexp,tojstring)
 {
 	
-	console.log("searchtextscriptarray begins");
+	//console.log("searchtextscriptarray begins");
 	
 	//let searchoi = await tojstring.matchAll(tojregexp);
 	//tojregexp=new RegExp(tojregexp.source, "gmu");
@@ -26,7 +26,7 @@ async function searchtextscriptarray(tojregexp,tojstring)
 	
 	
 	
-	console.log("searchtextscriptarray finishes");
+	//console.log("searchtextscriptarray finishes");
 	
 	return searchoi;
 	//searchoi1 = await arrangersearchoinumbar(searchoi);
@@ -39,7 +39,7 @@ async function searchtextscriptarray(tojregexp,tojstring)
 
 function arrangersearchoinumbar(arrayvitz,numbardelement)
 {
-	console.log("arrangersearchoinumbar begins");
+	//console.log("arrangersearchoinumbar begins");
 	let strockoi = new Map();
 	let elemm;
 	//for (var elemm in arrayvitz)
@@ -58,7 +58,7 @@ function arrangersearchoinumbar(arrayvitz,numbardelement)
 	//console.log(arrayvitz.length);
 	
 	
-	console.log("arrangersearchoinumbar finishes");
+	//console.log("arrangersearchoinumbar finishes");
 	
 	return strockoi;
 
@@ -78,7 +78,7 @@ function arrangersearchoinumbar(arrayvitz,numbardelement)
 
 function arrangerinsideraisearchoi(tojregexp,tojmap)
 {
-	console.log("arrangerinsideraisearchoi begins");
+	//console.log("arrangerinsideraisearchoi begins");
 	let keyarray = tojmap.keys();
 	let novymappoj = new Map()
 	let credstrock;
@@ -105,7 +105,7 @@ function arrangerinsideraisearchoi(tojregexp,tojmap)
 	
 	
 	
-	console.log("arrangerinsideraisearchoi finishes");
+	//console.log("arrangerinsideraisearchoi finishes");
 	
 	return novymappoj;
 
@@ -115,7 +115,7 @@ function arrangerinsideraisearchoi(tojregexp,tojmap)
 
 function addendarstrockmappoj(tojstrock,tojmap,whetherforward)
 {
-	console.log("addendarstrockmappoj begins");
+	//console.log("addendarstrockmappoj begins");
 	let novymap = new Map();
 	let mapkeys = tojmap.keys();
 	let elemm2;
@@ -164,7 +164,7 @@ function addendarstrockmappoj(tojstrock,tojmap,whetherforward)
 	}
 	
 	
-	console.log("addendarstrockmappoj finishes");
+	//console.log("addendarstrockmappoj finishes");
 	
 	return novymap;
 	
@@ -175,7 +175,7 @@ function addendarstrockmappoj(tojstrock,tojmap,whetherforward)
 
 async function integrajmappojssearchoisarray(mappojarray)
 {
-	console.log("integrajmappojssearchoisarray begins");
+	//console.log("integrajmappojssearchoisarray begins");
 		novymappoj = new Map(); 
 		if (mappojarray.length>=1)
 		{
@@ -183,7 +183,7 @@ async function integrajmappojssearchoisarray(mappojarray)
 				{
 					
 					
-					console.log("integrajmappojssearchoisarray finishes");
+					//console.log("integrajmappojssearchoisarray finishes");
 					
 						return mappojarray[0];
 				}
@@ -198,7 +198,7 @@ async function integrajmappojssearchoisarray(mappojarray)
 						}
 						}
 						
-						console.log("integrajmappojssearchoisarray finishes");
+						//console.log("integrajmappojssearchoisarray finishes");
 						
 						return novymappoj;
 				}
@@ -206,7 +206,7 @@ async function integrajmappojssearchoisarray(mappojarray)
 		else
 		{
 			
-			console.log("integrajmappojssearchoisarray finishes");
+			//console.log("integrajmappojssearchoisarray finishes");
 			
 				return novymappoj;
 		}
@@ -214,9 +214,9 @@ async function integrajmappojssearchoisarray(mappojarray)
 
 function integrajmappojssearchois(tojmap1, tojmap2)
 {
-	console.log("integrajmappojssearchois begins");
-	console.log(tojmap1);
-	console.log(tojmap2);
+	//console.log("integrajmappojssearchois begins");
+	//console.log(tojmap1);
+	//console.log(tojmap2);
 	
 		if ((tojmap1!=null)&&(tojmap1.size>0))
 	{
@@ -264,14 +264,14 @@ function integrajmappojssearchois(tojmap1, tojmap2)
 		}
 		} while (elemm!=null)
 		
-		console.log("integrajmappojssearchois finishes both");
+		//console.log("integrajmappojssearchois finishes both");
 		
 		return novymappoj;
 	}
 	else
 	{
 		
-		console.log("integrajmappojssearchois finishes first only");
+		//console.log("integrajmappojssearchois finishes first only");
 		
 		return tojmap1;
 		}
@@ -282,7 +282,7 @@ function integrajmappojssearchois(tojmap1, tojmap2)
 		{
 			
 			
-			console.log("integrajmappojssearchois finishes second only");
+			//console.log("integrajmappojssearchois finishes second only");
 			
 			return tojmap2;
 			}
@@ -290,7 +290,7 @@ function integrajmappojssearchois(tojmap1, tojmap2)
 			{
 				
 				
-				console.log("integrajmappojssearchois finishes both zeroes");
+				//console.log("integrajmappojssearchois finishes both zeroes");
 				
 					return new Array();
 			}

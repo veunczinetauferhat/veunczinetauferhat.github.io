@@ -12,17 +12,17 @@
 
 function hrefkompletarz(celaadressa, czastecznaadressa)
 {
-	console.log("hrefkompletarz begins");
+	//console.log("hrefkompletarz begins");
 	var prvnisymbolczasteczne = czastecznaadressa.substring(0,1);
 	var reggus0=/\w/;
 	var reggus1;
 	
-	console.log(prvnisymbolczasteczne);
-	console.log(reggus0.test(prvnisymbolczasteczne));
+	//console.log(prvnisymbolczasteczne);
+	//console.log(reggus0.test(prvnisymbolczasteczne));
 	
 	if (reggus0.test(prvnisymbolczasteczne))
 	{
-		console.log("hrefkompletarz finishes");
+		//console.log("hrefkompletarz finishes");
 		
 		return czastecznaadressa;
 	}
@@ -37,9 +37,9 @@ function hrefkompletarz(celaadressa, czastecznaadressa)
 			{
 				reggus1 = /^((.){1,20})\/\/\w/;
 				
-				console.log("hrefkompletarz finishes");
-				console.log("celadressa:");
-				console.log(celaadressa);
+				//console.log("hrefkompletarz finishes");
+				//console.log("celadressa:");
+				//console.log(celaadressa);
 				
 				return celaadressa.match(reggus1)[1]+czastecznaadressa;
 			}
@@ -48,9 +48,9 @@ function hrefkompletarz(celaadressa, czastecznaadressa)
 				reggus0 = /^((.){1,20}\:\/\/(\w){1,20}(\.(\w){1,20}){1,10})\//;
 				reggus1 = /^/;
 				
-				console.log("hrefkompletarz finishes");
-				console.log("celadressa:");
-				console.log(celaadressa);
+				//console.log("hrefkompletarz finishes");
+				//console.log("celadressa:");
+				//console.log(celaadressa);
 				
 				return celaadressa.match(reggus0)[1]+czastecznaadressa;
 			}
@@ -88,7 +88,7 @@ function hrefkompletarz(celaadressa, czastecznaadressa)
 async function sebratfragmentarislovesa(xhr, tojregexp)
 {
 	
-	console.log("sebratfragmentarislovesa");
+	//console.log("sebratfragmentarislovesa");
 	
 	
 }
@@ -102,7 +102,7 @@ async function sebratfragmentarislovesa(xhr, tojregexp)
 
 async function zpracovatvszechnyetapy(tojprefix,tojcore,pageregexpes,tojregexp,czekcore,czekarray,recursivaarray,typusderecherche,staralimitastrankova)
 {
-	console.log("zpracovatvszechnyetapy begins");
+	//console.log("zpracovatvszechnyetapy begins");
 	var limitastrankova = staralimitastrankova
 	var adressearray=new Array();
 	var przijatyobjektus={};
@@ -124,8 +124,8 @@ async function zpracovatvszechnyetapy(tojprefix,tojcore,pageregexpes,tojregexp,c
 	{
 			locallyregexp=null;
 	}
-	console.log("locallyregexp:");
-	console.log(locallyregexp);
+	//console.log("locallyregexp:");
+	//console.log(locallyregexp);
 	
 	
 	//if (recursivacore==true)
@@ -153,13 +153,13 @@ async function zpracovatvszechnyetapy(tojprefix,tojcore,pageregexpes,tojregexp,c
 	
 	var danaetapa=0;
 	
-	console.log("pageregexpes.length:");
-	console.log(pageregexpes.length);
+	//console.log("pageregexpes.length:");
+	//console.log(pageregexpes.length);
 	var localleciloveadresse;
 
 	while ((limitastrankova>0)&&(danaetapa<pageregexpes.length)&&(ciloveadresse!=null)&&(ciloveadresse.length>0))
 	{
-		console.log("cycle started");
+		//console.log("cycle started");
 		
 		
 		if (czekarray[danaetapa]==true)
@@ -211,7 +211,7 @@ async function zpracovatvszechnyetapy(tojprefix,tojcore,pageregexpes,tojregexp,c
 	
 	
 	
-	console.log("zpracovatvszechnyetapy finishes");
+	//console.log("zpracovatvszechnyetapy finishes");
 	
 	return resultantes;
 	
@@ -223,7 +223,7 @@ async function zpracovatvszechnyetapy(tojprefix,tojcore,pageregexpes,tojregexp,c
 
 async function zpracovatsbiranietapa(ciloveadresse,tojprefix,tojregexp,pageregexp1,pageregexp2,limitastrankova,typusderecherche,zpracovaneadresse)
 {
-	console.log("zpracovatsbiranietapa begins");
+	//console.log("zpracovatsbiranietapa begins");
 	//var zpracovaneadresse = new Array();
 	var pagesprzisztietapa = new Array();
 	var tekoucikolvo = 0;
@@ -243,10 +243,10 @@ async function zpracovatsbiranietapa(ciloveadresse,tojprefix,tojregexp,pageregex
 		
 		tekouciadressa=ciloveadresse[kauntar];
 		przijatyobjektus= await sebratdepage(tekouciadressa,tojprefix,tojregexp,pageregexp1,pageregexp2,typusderecherche);
-		console.log("przijatyobjektus.adressovate1:");
-		console.log(przijatyobjektus.adressovate1);
-		console.log("przijatyobjektus.adressovate2:");
-		console.log(przijatyobjektus.adressovate2);
+		//console.log("przijatyobjektus.adressovate1:");
+		//console.log(przijatyobjektus.adressovate1);
+		//console.log("przijatyobjektus.adressovate2:");
+		//console.log(przijatyobjektus.adressovate2);
 		
 		
 		ciloveadresse = await arrayuniqueexclusionaryjoin(ciloveadresse,przijatyobjektus.adressovate1);
@@ -283,8 +283,8 @@ async function zpracovatsbiranietapa(ciloveadresse,tojprefix,tojregexp,pageregex
 	}
 	var resultanta = {};
 	
-	console.log("pagesprzisztietapa:");
-	console.log(pagesprzisztietapa);
+	//console.log("pagesprzisztietapa:");
+	//console.log(pagesprzisztietapa);
 	
 	resultanta.neupages = pagesprzisztietapa;
 	resultanta.sdrzeni = recherchesdrzeni;
@@ -292,8 +292,8 @@ async function zpracovatsbiranietapa(ciloveadresse,tojprefix,tojregexp,pageregex
 	resultanta.zpracovane = zpracovaneadresse;
 	
 	
-	console.log("zpracovatsbiranietapa finishes");
-	console.log(resultanta.sdrzeni);
+	//console.log("zpracovatsbiranietapa finishes");
+	//console.log(resultanta.sdrzeni);
 	
 	return resultanta;
 	
@@ -307,8 +307,8 @@ async function zpracovatsbiranietapa(ciloveadresse,tojprefix,tojregexp,pageregex
 
 async function sebratdepage(taadressa, tenprefix, tojregexp, pageregexp1, pageregexp2, typusderecherche)
 {
-	console.log("sebratdepage begins");
-	console.log("working on page:"+taadressa)
+	//console.log("sebratdepage begins");
+	//console.log("working on page:"+taadressa)
 	xhr = await executarfetch(tenprefix+taadressa);
 	
 	
@@ -346,8 +346,8 @@ async function sebratdepage(taadressa, tenprefix, tojregexp, pageregexp1, pagere
 		//vezvrat.adressovate = sebrateadressecelkove;
 		
 		
-		console.log("sebratdepage finishes");
-		console.log(vezvrat.sdrzeni);
+		//console.log("sebratdepage finishes");
+		//console.log(vezvrat.sdrzeni);
 		
 		return vezvrat;
 		
@@ -362,16 +362,16 @@ async function sebratdepage(taadressa, tenprefix, tojregexp, pageregexp1, pagere
 
 async function sebratcastotnislovesa(xhr, tojregexp)
 {
-	console.log("sebratcastotnislovesa begins");
+	//console.log("sebratcastotnislovesa begins");
 	var tojrecherche = await searchtextscriptarray(tojregexp,xhr);
 		
 		
 		tojrecherche = await arrangersearchoinumbar(tojrecherche,0);
 		
 		
-		console.log("sebratcastotnislovesa finishes");
+		//console.log("sebratcastotnislovesa finishes");
 		
-		console.log(tojrecherche.size);
+		//console.log(tojrecherche.size);
 		
 		return tojrecherche;
 		
@@ -387,20 +387,20 @@ async function sebratcastotnislovesa(xhr, tojregexp)
 
 async function sebratadresse(xhr,klicovy,bazovy)
 {
-	console.log("sebratadresse begins");
+	//console.log("sebratadresse begins");
 	
-	console.log("klicovy");
-	console.log(klicovy);
-	console.log(klicovy.source);
-	console.log(klicovy.flags);
+	//console.log("klicovy");
+	//console.log(klicovy);
+	//console.log(klicovy.source);
+	//console.log(klicovy.flags);
 	
 	
 	klicovy = new RegExp("href(\s){0,5}\=(\s){0,5}\"(\s){0,5}("+klicovy.source+")(\s){0,5}\"",klicovy.flags);
 
 	
 	var adressaspisoek0 = await searchtextscriptarray(klicovy,xhr);
-	console.log("najdeneadresse:");
-	console.log(adressaspisoek0);
+	//console.log("najdeneadresse:");
+	//console.log(adressaspisoek0);
 	
 	adressaspisoek0 = await arrangersearchoinumbar(adressaspisoek0,4);
 	
@@ -427,7 +427,7 @@ async function sebratadresse(xhr,klicovy,bazovy)
 		}
 	while (elemm!=null)
 	
-	console.log("sebratadresse finishes");
+	//console.log("sebratadresse finishes");
 	
 	
 	return grossadressaspisoek;

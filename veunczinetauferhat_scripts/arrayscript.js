@@ -1,6 +1,6 @@
 function arrayuniqueexclude(froms,excludant)
 {
-	console.log("arrayuniqueexclude begins");
+	//console.log("arrayuniqueexclude begins");
 	var novyarray =  new Array();
 	for (var ejtoj = 0; ejtoj<froms.length; ejtoj++)
 	{
@@ -9,7 +9,7 @@ function arrayuniqueexclude(froms,excludant)
 				novyarray.push(froms[ejtoj]);
 		}
 	}
-	console.log("arrayuniqueexclude finishes");
+	//console.log("arrayuniqueexclude finishes");
 	return novyarray;
 	
 	
@@ -21,9 +21,9 @@ function arrayuniqueexclude(froms,excludant)
 
 function arrayuniqueexclusionaryjoin(tojarray1, tojarray2)
 {
-	console.log("arrayuniqueexclusionaryjoin begins");
-	console.log(tojarray1);
-	console.log(tojarray2);
+	//console.log("arrayuniqueexclusionaryjoin begins");
+	//console.log(tojarray1);
+	//console.log(tojarray2);
 	
 		var novyarray =  new Array();
 		if ((tojarray1!=null)&&(tojarray1.length>0))
@@ -45,8 +45,8 @@ function arrayuniqueexclusionaryjoin(tojarray1, tojarray2)
 		}
 		}
 		
-		console.log("arrayuniqueexclusionaryjoin finishes");
-		console.log(novyarray);
+		//console.log("arrayuniqueexclusionaryjoin finishes");
+		//console.log(novyarray);
 		
 	return novyarray;
 }
@@ -54,7 +54,7 @@ function arrayuniqueexclusionaryjoin(tojarray1, tojarray2)
 
 function arrayuniqueexclusionaryjoindearray(arraydearray)  //array of arrays
 {
-	console.log("arrayuniqueexclusionaryjoindearray begins");
+	//console.log("arrayuniqueexclusionaryjoindearray begins");
 	if (arraydearray.length>=1)
 	{
 		var novyarray =  arraydearray[0];
@@ -69,7 +69,7 @@ function arrayuniqueexclusionaryjoindearray(arraydearray)  //array of arrays
 		
 		}
 		
-		console.log("arrayuniqueexclusionaryjoindearray finishes");
+		//console.log("arrayuniqueexclusionaryjoindearray finishes");
 		
 		return novyarray;
 		
@@ -77,7 +77,7 @@ function arrayuniqueexclusionaryjoindearray(arraydearray)  //array of arrays
 	else
 	{
 		
-		console.log("arrayuniqueexclusionaryjoindearray finishes");
+		//console.log("arrayuniqueexclusionaryjoindearray finishes");
 		
 		return new Array();
 		}

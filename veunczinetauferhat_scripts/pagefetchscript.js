@@ -1,6 +1,6 @@
 async function executarfetch(fetchadressa) //entry point
 	{
-		console.log("fetchadressa begins");
+		//console.log("fetchadressa begins");
 		
 		//console.log("rechercha1.5");
 		//let textrar = await fetchar();
@@ -9,7 +9,7 @@ async function executarfetch(fetchadressa) //entry point
 		{
 		xhr = await fetchascript2(fetchadressa);
 		
-		console.log("fetchadressa finishes successfully");
+		//console.log("fetchadressa finishes successfully");
 		
 		
 		return xhr;
@@ -17,7 +17,7 @@ async function executarfetch(fetchadressa) //entry point
 	}
 	catch(er)
 	{
-		console.log("fetchadressa finishes with error");
+		//console.log("fetchadressa finishes with error");
 		
 		//console.log(er.message);
 		return er.toString();
@@ -30,7 +30,7 @@ async function executarfetch(fetchadressa) //entry point
 		
 async function fetchascript2(adressa)
 {
-	console.log("fetchascript2 begins");
+	//console.log("fetchascript2 begins");
 	//document.write(adressa);
 	
 let response = await fetch(adressa, {method: 'GET', 
@@ -51,13 +51,13 @@ let response = await fetch(adressa, {method: 'GET',
 if (response.ok) { 
   let tojtext = response.text();
   
-  console.log("fetchascript2 finishes successfully");
+  //console.log("fetchascript2 finishes successfully");
   
   //document.write(adressa);
   return tojtext;
 } else {
 	
-console.log("fetchascript2 finishes with error");	
+//console.log("fetchascript2 finishes with error");	
 
   return(response.status.toString());
 }
