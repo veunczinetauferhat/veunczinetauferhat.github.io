@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script type="text/javascript" src='veunczinetauferhat_scripts/pagefetchscript.js'></script>
+<script type="text/javascript" src='veunczinetauferhat_scripts/searchtextscript.js'></script>
+<script type="text/javascript" src='veunczinetauferhat_scripts/searchtextscripthfyffar.js'></script>
+<script type="text/javascript" src='veunczinetauferhat_scripts/arrayscript.js'></script>
+<script type="text/javascript" src='veunczinetauferhat_scripts/hrefmacharz.js'></script>
+<!--<script type="text/javascript" src='veunczinetauferhat_scripts/'></script>-->
+<title>Pagina 5</title>
+</head>
+<body>
+<h1>Page content search</h1>            
+
+<p id="prefixparagraph">
+<input type="text" name="prefixadressa" id="prefixadressa" placeholder="Prefix URL" size="55" value="https://cors-anywhere.herokuapp.com/">
+
+</p>
+<!--<p id="prefixbuttonparagraph">-->
+<!--<button type="submit" size="40" onclick="etandardvalueprefix('https://cors-anywhere.herokuapp.com/')">https://cors-anywhere.herokuapp.com/</button>-->
+<!--</p>-->
+<!--https://cors-anywhere.herokuapp.com/-->
+<p id="fetchadressaparagraph">
+<input type="text" name="fetchadressa" id="fetchadressa" placeholder="Core URL" size="55">
+<input type="checkbox" name="whetherczekrprimar" id="whetherczekrprimar" defaultChecked="false" >Check this page
+
+</p>
+<p id="czejnerparagraph0">
+<input type="text" name="pagelinken0" id="pagelinken0" placeholder="Page Links (Regular Expression)" size="55">
+<input type="checkbox" name="linkenczejner0" id="linkenczejner0" onclick="czekarz(0)"  defaultChecked="false" >Next chain
+<input type="checkbox" name="whetherczekr0" id="whetherczekr0" defaultChecked="false"  >Check these pages
+<input type="checkbox" name="recursivaczekr0" id="recursivaczekr0" defaultChecked="false">Recursive
+</p>
+
+<p id="regexpparagraph">
+<input type="text" name="tojregexp" id="tojregexp" placeholder="Search Item (Regular Expression)" size="55">
+<input type="checkbox" name="bigsmallregister" id="bigsmallregister" defaultChecked="false">Ignore case
+</p>
+
+<p id="presearchtypekindparagraph">
+	Search type:
+</p>
+
+<p id="searchtypekindparagraph">
+	<input type="radio" id="okkuranznumbarsvicz" name="okkuranznumbarsvicz" value="occurencenumber" name="tensearchtypekind" checked="true">Number of occurances in pages
+</p>
+
+
+
+<p id="pagesnumberlimiterparagraph">
+
+	<input type="number" id="pagesnumbar" name="pagesnumbar" min="1" step="1" value="16">Maximum number of searched pages
+</p>
+
+<p id="tojnaszboutonparagraph">
+	<button type="submit" onclick="executar_pre()">Execute</button> 
+</p>
+<p id="resultantesparagraph">
+	
+</p>
+<script>
+	var fetchadressa;
+	var mapderecherche;
+	var tojregexp;
+	var sitenprimar
+	var hrefnomenk;
+	var torka;
+	var xhr;
+	var boljor;
+	
+	
+	var linkenfronta=0;
+	//var frontajus_textoj = new Array();
+	//var frontajus_czejner = new Array();
+	var frontajus = new Array();
+	
+	var hindra;
+	
+	
+	
+	function testovacja()
+	{
+		
+		}
+	
+	function etandardvalueprefix(tavalora)
+	{
+		
+		//hindra = document.body.getElementById("prefixparagraph");
+			document.getElementById("prefixadressa").value=tavalora;
+			
+	}
+	
+	frontajus.push(document.getElementById(czejnerparagraph0));
+	
+	
+	//frontajus_textoj.push(document.getElementById("pagelinken0"));
+	//frontajus_czejner.push(document.getElementById("linkenczejner0"));
+	
+	
+	var iddar;
+	var elemenz;
+	
+	function czekarz(kolinz)
+	{
+		
+		
+		
+		//iddar = "linkenczejner"+kolinz.toString();
+		elemenz = document.getElementById("linkenczejner"+kolinz.toString());
+		
+		
+		
+		
+		if (elemenz.checked==true)
+		{
+			
+			
+			
+			addendarczekarz(kolinz);
+			
+			
+		}
+		else
+		{
+			
+			rimovereczekarz(kolinz);
+			
+		}
+		
+		
+	
+	}
+	
+	var novisad;
+	var textoja;
+	var czekeroja;
+	
+	function addendarczekarz(tojnumbar)
+	{
+		
+		if (tojnumbar==linkenfronta)
+		{
+			
+				novisad = document.createElement("p");
+				linkenfronta = linkenfronta+1;
+				//iddar = "czejnerparagraph"+linkenfronta.toString();
+				novisad.id = "czejnerparagraph"+linkenfronta.toString();
+				document.body.insertBefore(novisad,document.getElementById("regexpparagraph"));
+				
+				textoja = document.createElement("input");
+				textoja.type="text";
+				//iddar = "pagelinken"+linkenfronta.toString();
+				textoja.name="pagelinken"+linkenfronta.toString();
+				 textoja.id="pagelinken"+linkenfronta.toString();
+				 textoja.size=55;
+				  textoja.placeholder="Page Links (Regular Expression)";
+				  novisad.appendChild(textoja);
+				  
+				  
+				  
+				  
+				
+				czekeroja = document.createElement("input");
+				czekeroja.type = "checkbox";
+				//iddar = "linkenczejner"+linkenfronta.toString();
+				czekeroja.name="linkenczejner"+linkenfronta.toString();
+				 czekeroja.id="linkenczejner"+linkenfronta.toString();
+				  var tojnumbar1=linkenfronta;
+				  czekeroja.onclick=function(){czekarz(tojnumbar1)};
+				  novisad.appendChild(czekeroja);
+				var textojarr = document.createTextNode("Next chain");
+				novisad.appendChild(textojarr);
+				
+				var czekeroja2 = document.createElement("input");
+				czekeroja2.type = "checkbox";
+				//iddar = "whetherczekr"+linkenfronta.toString();
+				czekeroja2.name="whetherczekr"+linkenfronta.toString();
+				 czekeroja2.id="whetherczekr"+linkenfronta.toString();
+				  //var tojnumbar1=linkenfronta;
+				  //czekeroja.onclick=function(){czekarz(tojnumbar1)};
+				  novisad.appendChild(czekeroja2);
+				var textojarr2 = document.createTextNode("Check these pages");
+				novisad.appendChild(textojarr2);
+				
+				var czekeroja3 = document.createElement("input");
+				czekeroja3.type = "checkbox";
+				//iddar = "whetherczekr"+linkenfronta.toString();
+				czekeroja3.name="recursivaczekr"+linkenfronta.toString();
+				 czekeroja3.id="recursivaczekr"+linkenfronta.toString();
+				  //var tojnumbar1=linkenfronta;
+				  //czekeroja.onclick=function(){czekarz(tojnumbar1)};
+				  novisad.appendChild(czekeroja3);
+				var textojarr3 = document.createTextNode("Recursive");
+				novisad.appendChild(textojarr3);
+				
+				
+				
+				
+				
+				
+				
+		}
+		else
+		{
+			//console.log("error");
+			}
+	}
+	
+	function rimovereczekarz(tojnumbar)
+	{
+		if (tojnumbar<linkenfronta-1)
+		{
+				//for (var ijt=tojnumbar+1; ijt<=linkenfronta; ijt++)
+				//{
+						rimovereczekarz(tojnumbar+1);
+				//}
+		}
+		
+		if (tojnumbar<=linkenfronta-1)
+		{
+			var iddar = "czejnerparagraph"+linkenfronta.toString()
+			linkenfronta=linkenfronta-1;
+			
+			var elemr = document.getElementById(iddar);
+			elemr.remove();
+			
+		}
+		
+	}
+	
+	
+	
+	function testar()
+	{
+		document.write('dgdfghdfg');
+		}
+		
+		function executar_pre()
+		{
+			executar();
+			}
+		
+		
+		async function executar()
+	{
+		
+		var pagelinken =  new Array();
+		
+		
+		
+		fetchadressa = document.getElementById("fetchadressa").value;
+		prefixadressa = document.getElementById("prefixadressa").value;
+		tojregexp = new RegExp(document.getElementById("tojregexp").value);
+		
+		
+		var numbarmaximale = document.getElementById("pagesnumbar").value;
+		
+		var bigsmallregisterthing;
+	if (document.getElementById("bigsmallregister").checked)
+	{
+		bigsmallregisterthing=true;
+	}
+	else
+	{
+		bigsmallregisterthing=false;
+	}
+	
+	if (bigsmallregisterthing==true)
+	{
+	tojregexp = new RegExp(tojregexp.source, "gmi");
+}
+else
+{
+	tojregexp = new RegExp(tojregexp.source, "gm");
+	}
+
+		
+		pagelinken.push(new RegExp(new RegExp(document.getElementById("pagelinken0").value).source,"g"));
+		
+		
+		var pageczekraren = new Array();
+		var recursivaczekraren = new Array();
+		
+		var pageczekrarenprimar;
+		//var recursivaczekrarenprimar;
+		if (document.getElementById("whetherczekrprimar").checked)
+		{
+				pageczekrarenprimar = true;
+		}
+		else
+		{
+			pageczekrarenprimar = false;
+			}
+			
+		//if (document.getElementById("recursivaczekrprimar").checked)
+		//{
+		//		recursivaczekrarenprimar = true;
+		//}
+		//else
+		//{
+		//	recursivaczekrarenprimar = false;
+		//	}
+			
+		
+		if (document.getElementById("whetherczekr0").checked)
+		{
+				pageczekraren.push(true);
+		}
+		else
+		{
+			pageczekraren.push(false);
+			}
+			
+			
+			
+		if (document.getElementById("recursivaczekr0").checked)
+		{
+				recursivaczekraren.push(true);
+		}
+		else
+		{
+			recursivaczekraren.push(false);
+			}
+			
+			var probbiar = 0;
+			
+			
+	
+		
+		if (linkenfronta>0)
+		{
+		for (var ijtoj=1; ijtoj<=linkenfronta; ijtoj++)
+		{
+			pagelinken.push(new RegExp(new RegExp(document.getElementById("pagelinken"+ijtoj.toString()).value).source,"g"));
+			
+			if (document.getElementById("whetherczekr"+ijtoj.toString()).checked)
+		{
+				pageczekraren.push(true);
+		}
+		else
+		{
+			pageczekraren.push(false);
+			}
+			if (document.getElementById("recursivaczekr"+ijtoj.toString()).checked)
+		{
+				recursivaczekraren.push(true);
+		}
+		else
+		{
+			recursivaczekraren.push(false);
+			}
+			
+			
+			
+		}
+	}
+	
+	
+	
+	
+		var typusderecherche=null;
+		if (document.getElementById("okkuranznumbarsvicz").checked=true)
+		{
+			typusderecherche=0;
+		}
+		
+	
+	
+	var limitnumbartogrogon =  document.getElementById("pagesnumbar").value;
+		
+	console.log("reading finished"+limitnumbartogrogon);
+	
+	var resultantes= new Map();
+	
+		resultantes = await zpracovatvszechnyetapy(prefixadressa,fetchadressa,pagelinken,tojregexp,pageczekrarenprimar,pageczekraren,recursivaczekraren,typusderecherche,limitnumbartogrogon);
+		
+		
+		var poslednej = document.getElementById("resultantesparagraph");
+		
+		
+		
+		var tojnaszkeyarray = resultantes.keys();
+		var novyelemm;
+		
+		novyelemm = tojnaszkeyarray.next().value;
+		
+		//console.log("beginning output");
+		//console.log(resultantes.size);
+		
+		while (novyelemm!=null)
+		{
+		poslednej.appendChild(document.createTextNode(novyelemm));
+		//console.log(novyelemm);
+		poslednej.appendChild(document.createTextNode(" "));
+		poslednej.appendChild(document.createTextNode(resultantes.get(novyelemm)));
+		//console.log(resultantes.get(novyelemm));
+		poslednej.appendChild(document.createTextNode('\r\n'));
+		
+		novyelemm = tojnaszkeyarray.next().value;
+		}
+		
+		
+		
+		
+		
+		
+		
+		//var adressaspisoek;
+		//var adressaspisoek0;
+		//var ijetar=0;
+		
+		//var grossadressaspisoek = new Array();
+		//var localadresse =  new Array();
+		
+		//var danabazovaadressa;
+		//var keyarray;
+		
+		
+		
+		
+		
+		
+		//AAAAAAAAAAAAAAAAAAAAAAAAA!!!
+		
+		//for (var injjettoj=0; injjettoj<)
+		
+		//do{
+	
+		//localeadresse = await sebratadresse(xhr, ,danabazovaadressa);
+		
+		//arrayderecherche = await searchtextscriptarray(tojregexp,xhr);
+		
+		//mapderecherche = await arrangersearchoinumbar(arrayderecherche);
+	//}
+	//while{
+		
+		//}
+		
+		
+		//AAAAAAAAAAAAAAAAAAAAAAAAA!!!!!!!!!!!!!!!!!!11
+		
+		
+		
+		//arrayderecherche = await searchtextscriptarray(tojregexp,xhr);
+		
+		
+		//mapderecherche = await arrangersearchoinumbar(arrayderecherche);
+		
+		//var torka=mapderecherche.keys();
+		
+		//for (var boljor in torka)
+		
+		//let tevrinc;
+		//do {
+			//tevrinc=torka.next().value;
+			//if (tevrinc!=null)
+			//{
+			//	document.write(tevrinc);
+			//	document.write(" ");
+			//	document.write(mapderecherche.get(tevrinc));
+			//}
+			//}
+			//while (tevrinc!=null)
+		
+		
+		
+		
+		
+		//for (var ijt=0; ijt<torka.length; ijt++)
+		//{
+		//		boljor=torka[ijt];
+		//		document.write(boljor[0]);
+		//		document.write(" ");
+		//		document.write(maprecherche.get(boljor));
+		//}
+		//document.write(mapderecherche);
+		
+		
+		
+		//document.write(xhr);
+		
+		
+		
+		
+		
+		//document.write(fetchar());
+		//xhr=fetchascript2(fetchadressa);
+		//document.write(xhr);
+		
+	}
+	
+		
+</script>
+</body>
+</html>

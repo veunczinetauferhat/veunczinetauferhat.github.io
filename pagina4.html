@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script type="text/javascript" src='etandardesscriptes/loadscript.js'></script>
+<script type="text/javascript" src='etandardesscriptes/loadscript2.js'></script>
+<script type="text/javascript" src='etandardesscriptes/fajlscript.js'></script>
+<script type="text/javascript" src='etandardesscriptes/fetchascript.js'></script>
+<script type="text/javascript" src='etandardesscriptes/fetchascript2.js'></script>
+<script type="text/javascript" src='etandardesscriptes/fetchascript3.js'></script>
+<script type="text/javascript" src='etandardesscriptes/fetchascript4.js'></script>
+<link rel="stylesheet" type="text/css" href="style1.css"/>
+<title>Pagina 4</title>
+</head>
+<body>
+<h1>Pagina</h1>            
+<h2>4</h2>
+<h3></h3>
+<p>
+<input type="text" name="fajladressa" id="fetchadressa" placeholder="File" size="18">
+</p>
+<p>
+	<button type="submit" onclick="executar()">Execute</button> 
+</p>
+<script>	
+	
+	
+	function tevedi()
+		{
+			alert(rouma.status);
+			if (rouma.status == 200) { 
+				
+	//return rouma.response;alert(rouma);
+	document.write(rouma.response);
+	}
+	else {
+		//return null;
+		alert(rouma);
+		}
+		}
+	
+	function executar()
+	{
+		provestfajlscript()
+		}
+	
+	async function provestfajlscript() {
+		
+    
+		let torij = await fetchascript3(document.getElementById("fetchadressa").value);
+		//document.write(trmit);
+		//tevedi();
+		//document.write(torij);
+		}
+		
+		
+		
+</script>
+</body>
+</html>
