@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, height=device-width">
+<script type="text/javascript" src='images_imported_scripts/offscreencanvastest.js'></script>
+<script type="text/javascript" src='veunczinetauferhat_scripts/testscript.js'></script>
+<script type="text/javascript" src='librar_canvas_process/librar_image_representation.js'></script>
+
+<!--<script type="text/javascript" src=''></script>-->
+
+<title></title>
+</head>
+<body>
+	
+<p>
+<input type="file" id="tenfileselector">Load Image</input>
+</p>
+<p>
+<input type="checkbox" name="curvedstyle" id="curvedstyle"><span>Curved Style</span>
+</p>
+
+<p style="float:left;">
+<canvas id="novycanvas1" width="800" height="600" style="background-color: RGB(255, 255, 255); border: 1px solid #ccc; margin:1px;">
+Canvas Not Supported
+</canvas>
+</p>
+<p style="float:right;">
+<canvas id="examplecanvas1" width="200" height="200" style="background-color:RGB(255, 255, 255); border: 1px solid #ccc; margin:1px;">
+Canvas Not Supported
+</canvas>
+</p>
+<p style="float:right;">
+<canvas id="examplecanvas2" width="200" height="200" style="background-color:RGB(255, 255, 255); border: 1px solid #ccc; margin:1px;">
+Canvas Not Supported
+</canvas>
+</p>
+<p style="float:right;">
+<canvas id="examplecanvas3" width="200" height="200" style="background-color:RGB(255, 255, 255); border: 1px solid #ccc; margin:1px;">
+Canvas Not Supported
+</canvas>
+</p>
+<p style="float:right;">
+<canvas id="examplecanvas3" width="200" height="200" style="background-color:RGB(255, 255, 255); border: 1px solid #ccc; margin:1px;">
+Canvas Not Supported
+</canvas>
+</p>
+<p id="volczak1">
+</p>
+<!--<p>-->
+<!--<button type="button" id="testovacibutton">Test Button</button>-->
+<!--<button type="button" id="testovacibutton2">Test Button2</button>-->
+<!--</p>-->
+
+<!-- <button onclick="testoarOffscreenCanvas()">Test</button> -->
+
+
+<!--<style type="text/css">
+	.krienc {
+		position: relative;
+		bottom: 540px;
+		}
+</style>-->
+
+
+<script>
+	
+	
+	
+	//var testovacejbutton = document.getElementById("testovacibutton");
+	//testovacejbutton.addEventListener("click", provestimagens);
+	
+	//var testovacejbutton2 = document.getElementById("testovacibutton2");
+	//testovacejbutton2.addEventListener("click", provestimagens2);
+	
+	
+	//function provestimagens2()
+	//{
+	//	var turtuls = document.getElementById("examplecanvas1");
+	//	var turtulscontext = turtuls.getContext("2d");
+	//	var tenImageRepresentation = new imageRepresentation(100,100,true);
+	//	var toffelia = tenImageRepresentation.getContext2D(0,0,tenImageRepresentation.width,tenImageRepresentation.height);
+	//	turtulscontext.putImageData(toffelia, 0,0,0,0,tenImageRepresentation.width,tenImageRepresentation.height);
+	//}
+	
+	
+	//function provestimagens()
+	//{
+		//console.log("provestimagens");
+	//	var burbuls = document.getElementById("novycanvas1");
+	//	var turtuls = document.getElementById("examplecanvas1");
+	//	var burbulscontext = burbuls.getContext("2d");
+	//	var turtulscontext = turtuls.getContext("2d");
+	//	var tenImageRepresentation = new imageRepresentation(turtuls.width,turtuls.height,true);
+		//console.log("turtulscontext.width="+turtulscontext.width);
+		//var tenImageRepresentation = new imageRepresentation(turtulscontext.width,turtulscontext.height,true);
+		//var tenImageRepresentation = new imageRepresentation(200,400,true);
+	//	tenImageRepresentation.setContext2D(burbulscontext,0,0,tenImageRepresentation.width,tenImageRepresentation.height);
+	//	var toffelia = tenImageRepresentation.getContext2D(0,0,tenImageRepresentation.width,tenImageRepresentation.height);
+	//	turtulscontext.putImageData(toffelia, 0,0,0,0,tenImageRepresentation.width,tenImageRepresentation.height);
+		
+		
+		
+	//}
+	
+	
+	
+	
+	
+var tennaszcanvas = document.getElementById("novycanvas1");
+//var tennaszcontext = tennaszcanvas.getContext("2d", { alpha: false });
+var tennaszcontext = tennaszcanvas.getContext("2d");
+
+tennaszcontext.strokeStyle = "#FF007F"
+
+var tencanvaswidth = tennaszcanvas.width;
+var tencanvasheight = tennaszcanvas.height;
+var miesz = {x:0, y:0};
+var dravec = false;
+
+var leregime = "dessin";
+
+
+
+
+
+
+var koorsij1 = {x:0, y:0};
+//var koorsij2 = {x:0, y:0};
+var koorsijarray = new Array(0);
+var nodkaunt=0;
+
+
+
+var progonacz=false;
+var progonaczman;
+
+var mausdan=false;
+
+
+
+
+
+
+
+
+//function testoarOffscreenCanvas()
+//{
+		//alert(getGradientColor(100));
+	//alert('sdgdg');
+	//testovacjafunkcja();
+//testojj1();
+
+//}
+
+
+
+
+function curvojdraw(koorsijarray)
+{
+	
+	
+	
+	
+	var currancz;
+	//var sojtj1;
+	var sojtj2;
+	var sojtj3;
+	var sojtj4;
+	if (koorsijarray.length>0)
+	{
+			currancz = koorsijarray.shift();
+	}
+	if (koorsijarray.length==0)
+	{
+		//tennaszcontext.fillRect(currancz.x, currancz.y,1,1);
+		
+	}
+	while (koorsijarray.length>=3)
+	{
+			//sojtj1=koorsijarray.shift();
+			sojtj2=koorsijarray.shift();
+			sojtj3=koorsijarray.shift();
+			sojtj4=koorsijarray.shift();
+			tennaszcontext.beginPath();
+            tennaszcontext.moveTo(currancz.x, currancz.y);
+            tennaszcontext.bezierCurveTo(sojtj2.x,sojtj2.y,sojtj3.x,sojtj3.y,sojtj4.x,sojtj4.y);
+            tennaszcontext.stroke();
+            currancz = sojtj4;
+	}
+	while (koorsijarray.length>=2)
+	{
+		//sojtj1=koorsijarray.shift();
+			sojtj2=koorsijarray.shift();
+			sojtj3=koorsijarray.shift();
+			//sojtj4=koorsijarray.shift();
+			tennaszcontext.beginPath();
+            tennaszcontext.moveTo(currancz.x, currancz.y);
+            tennaszcontext.quadraticCurveTo(sojtj2.x,sojtj2.y,sojtj3.x,sojtj3.y);
+            tennaszcontext.stroke();
+            currancz = sojtj3;
+	}
+	while (koorsijarray.length>=1)
+	{
+		sojtj2=koorsijarray.shift();
+			//sojtj3=koorsijarray.shift();
+			//sojtj4=koorsijarray.shift();
+			tennaszcontext.beginPath();
+            tennaszcontext.moveTo(currancz.x, currancz.y);
+            tennaszcontext.lineTo(sojtj2.x,sojtj2.y);
+            tennaszcontext.stroke();
+            currancz = sojtj2;
+	}
+}
+
+function noncurvojdraw(koorsijarray)
+{
+	
+	var currancz;
+	//var sojtj1;
+	var sojtj2;
+	//var sojtj3;
+	//var sojtj4;
+	if (koorsijarray.length>0)
+	{
+			currancz = koorsijarray.shift();
+	}
+	if (koorsijarray.length==0)
+	{
+		//tennaszcontext.fillRect(currancz.x, currancz.y,1,1);
+		
+	}
+	//while (koorsijarray.length>=3)
+	//{
+			//sojtj1=koorsijarray.shift();
+	//		sojtj2=koorsijarray.shift();
+	//		sojtj3=koorsijarray.shift();
+	//		sojtj4=koorsijarray.shift();
+	//		tennaszcontext.beginPath();
+    //        tennaszcontext.moveTo(currancz.x, currancz.y);
+     //       tennaszcontext.bezierCurveTo(sojtj2.x,sojtj2.y,sojtj3.x,sojtj3.y,sojtj4.x,sojtj4.y);
+    //        tennaszcontext.stroke();
+    //        currancz = sojtj4;
+	//}
+	//while (koorsijarray.length>=2)
+	//{
+		//sojtj1=koorsijarray.shift();
+	//		sojtj2=koorsijarray.shift();
+	//		sojtj3=koorsijarray.shift();
+			//sojtj4=koorsijarray.shift();
+	//		tennaszcontext.beginPath();
+     //       tennaszcontext.moveTo(currancz.x, currancz.y);
+     //       tennaszcontext.quadraticCurveTo(sojtj2.x,sojtj2.y,sojtj3.x,sojtj3.y);
+     //       tennaszcontext.stroke();
+      //      currancz = sotjtj3;
+	//}
+	while (koorsijarray.length>=1)
+	{
+		sojtj2=koorsijarray.shift();
+			//sojtj3=koorsijarray.shift();
+			//sojtj4=koorsijarray.shift();
+			tennaszcontext.beginPath();
+            tennaszcontext.moveTo(currancz.x, currancz.y);
+            tennaszcontext.lineTo(sojtj2.x,sojtj2.y);
+            tennaszcontext.stroke();
+            currancz = sojtj2;
+	}
+}
+
+
+function przedatkoorsijen(koorsijarray)
+{
+	
+	if (document.getElementById("curvedstyle").checked==true)
+	{
+		
+	curvojdraw(koorsijarray);
+	}
+	else
+	{
+		noncurvojdraw(koorsijarray);
+	}
+	//alert(koors1.x.toString());
+	//var stroijk = koors1.x.toString()+","+koors1.y.toString()+","+koors2.x.toString()+","+koors2.y.toString();
+	
+	//alert(stroijk);
+	//var voljar = document.createElement("p");
+	//var volja = document.createTextNode(stroijk);
+	//voljar.appendChild(volja);
+	
+	//var tenvolczak = document.getElementById(volczak1);
+	//tenvolczak.appendChild(volja);
+	//document.body.append(voljar);
+	//tennaszcontext.beginPath(); //etandarddrawing
+                //tennaszcontext.moveTo(koorsij1.x,koorsij1.y); //etandarddrawing
+                //tennaszcontext.lineTo(koorsij2.x, koorsij2.y); //etandarddrawing
+                    //tennaszcontext.stroke(); //etandarddrawing
+                    //alert(koorsijarray.shift().x.toString());
+                    
+	
+}
+
+
+
+
+
+
+tennaszcanvas.addEventListener("mousedown", function(e){
+                 if (leregime=="dessin")
+                 {
+					 mausdan=true;
+                //miesz.x = e.pageX - this.offsetLeft;
+                //miesz.y = e.pageY - this.offsetTop;
+                //koorsij1.x = e.pageX - this.offsetLeft;
+                //koorsij1.y = e.pageY - this.offsetTop;
+                koorsijarray = new Array(0);
+                
+                koorsijarray.push({x:e.pageX - this.offsetLeft,y:e.pageY - this.offsetTop});
+                
+                dravec = true;
+                //tennaszcontext.beginPath(); //zebrat
+                //tennaszcontext.moveTo(miesz.x, miesz.y); //zebrat
+                nodkaunt = 1;
+                
+                
+				}
+            });
+            
+tennaszcanvas.addEventListener("mousemove", function(e){
+                 if (leregime=="dessin")
+                 {
+                if(dravec==true){
+					if (mausdan==true)
+					{
+                 
+                 if (progonacz==true)
+                 {
+					 progonacz=false;
+					 koorsijarray = new Array(0);
+						koorsijarray.push(progonaczman);
+					}
+                    //miesz.x = e.pageX - this.offsetLeft;
+                    //miesz.y = e.pageY - this.offsetTop;
+                    //koorsij1.x = e.pageX - this.offsetLeft;
+					//koorsij1.y = e.pageY - this.offsetTop;
+					//przedatkoorsijen(koorsij1,koorsij2);
+                    //tennaszcontext.lineTo(miesz.x, miesz.y); //zebrat
+                    //tennaszcontext.stroke(); //zebrat
+                    //koorsij1.x = koorsij2.x;
+					//koorsij1.y = koorsij2.y;
+					koorsijarray.push({x:e.pageX - this.offsetLeft,y:e.pageY - this.offsetTop});
+					nodkaunt = nodkaunt+1;
+					if (nodkaunt>=4)
+					{
+						progonaczman={x:e.pageX - this.offsetLeft,y:e.pageY - this.offsetTop};
+						przedatkoorsijen(koorsijarray);
+						//koorsijarray = new Array(0);
+						//koorsijarray.push({x:e.pageX - this.offsetLeft,y:e.pageY - this.offsetTop});
+						progonacz=true;
+						nodkaunt=1;
+					}
+                }
+                
+			}
+				}
+            });
+            
+            
+tennaszcanvas.addEventListener("mouseup", function(e){
+                 mausdan=false;
+                 if (leregime=="dessin")
+                 {
+					 progonacz=false;
+                //miesz.x = e.pageX - this.offsetLeft;
+                //miesz.y = e.pageY - this.offsetTop;
+                //tennaszcontext.lineTo(miesz.x, miesz.y); //zebrat
+                //tennaszcontext.stroke(); //zebrat
+                //tennaszcontext.closePath(); //zebrat
+                //dravec = false;
+               
+                przedatkoorsijen(koorsijarray);
+                dravec=false;
+                koorsijarray = new Array(0);
+				
+				}	
+            });
+            
+            
+            
+            
+         
+
+
+
+</script>
+</body>
+</html>

@@ -6,11 +6,7 @@
 <script type="text/javascript" src='veunczinetauferhat_scripts/pagefetchscript.js'></script>
 <script type="text/javascript" src='veunczinetauferhat_scripts/searchtextscript.js'></script>
 <script type="text/javascript" src='veunczinetauferhat_scripts/searchtextscripthfyffar.js'></script>
-<script type="text/javascript" src='veunczinetauferhat_scripts/arrayscript.js'></script>
 <script type="text/javascript" src='veunczinetauferhat_scripts/hrefmacharz.js'></script>
-<script type="text/javascript" src='veunczinetauferhat_scripts/offscreencanvastest.js'></script>
-<script type="text/javascript" src='veunczinetauferhat_scripts/testscript.js'></script>
-
 <!--<script type="text/javascript" src='veunczinetauferhat_scripts/'></script>-->
 <title>Pagina 5</title>
 </head>
@@ -27,23 +23,16 @@
 <!--https://cors-anywhere.herokuapp.com/-->
 <p id="fetchadressaparagraph">
 <input type="text" name="fetchadressa" id="fetchadressa" placeholder="Core URL" size="55">
-<input type="checkbox" name="whetherczekrprimar" id="whetherczekrprimar" defaultChecked="false" >Check this page
-
+<input type="checkbox" name="whetherczekrprimar" id="whetherczekrprimar" checked="false" >Check this page
 </p>
 <p id="czejnerparagraph0">
 <input type="text" name="pagelinken0" id="pagelinken0" placeholder="Page Links (Regular Expression)" size="55">
-<input type="checkbox" name="linkenczejner0" id="linkenczejner0" onclick="czekarz(0)"  defaultChecked="false" >Next chain
-<input type="checkbox" name="whetherczekr0" id="whetherczekr0" defaultChecked="false"  >Check these pages
-<input type="checkbox" name="recursivaczekr0" id="recursivaczekr0" defaultChecked="false">Recursive
+<input type="checkbox" name="linkenczejner0" id="linkenczejner0" onclick="czekarz(0)"  checked="false" >Next chain
+<input type="checkbox" name="whetherczekr0" id="whetherczekr0" checked="false"  >Check these pages
 </p>
-
 <p id="regexpparagraph">
 <input type="text" name="tojregexp" id="tojregexp" placeholder="Search Item (Regular Expression)" size="55">
-<input type="checkbox" name="bigsmallregister" id="bigsmallregister" defaultChecked="false">Ignore case
-</p>
-
-<p>
- <button onclick="testoarOffscreenCanvas()">Test</button> 
+<input type="checkbox" name="bigsmallregister" id="bigsmallregister" checked="false">Ignore case
 </p>
 
 <p id="presearchtypekindparagraph">
@@ -63,9 +52,7 @@
 
 <p id="tojnaszboutonparagraph">
 	<button type="submit" onclick="executar_pre()">Execute</button> 
-</p>
-<p id="resultantesparagraph">
-	
+	<button type="submit" onclick="testovacja()">Test</button> 
 </p>
 <script>
 	var fetchadressa;
@@ -85,18 +72,11 @@
 	
 	var hindra;
 	
-	function testoarOffscreenCanvas()
-	{
-		
-		alert('dfhd');
-		testovacja();
-		
-		testovacjafunkcja();
-	}
+	
 	
 	function testovacja()
 	{
-		alert('sfss');
+		
 		}
 	
 	function etandardvalueprefix(tavalora)
@@ -199,17 +179,6 @@
 				var textojarr2 = document.createTextNode("Check these pages");
 				novisad.appendChild(textojarr2);
 				
-				var czekeroja3 = document.createElement("input");
-				czekeroja3.type = "checkbox";
-				//iddar = "whetherczekr"+linkenfronta.toString();
-				czekeroja3.name="recursivaczekr"+linkenfronta.toString();
-				 czekeroja3.id="recursivaczekr"+linkenfronta.toString();
-				  //var tojnumbar1=linkenfronta;
-				  //czekeroja.onclick=function(){czekarz(tojnumbar1)};
-				  novisad.appendChild(czekeroja3);
-				var textojarr3 = document.createTextNode("Recursive");
-				novisad.appendChild(textojarr3);
-				
 				
 				
 				
@@ -284,11 +253,11 @@
 	
 	if (bigsmallregisterthing==true)
 	{
-	tojregexp = new RegExp(tojregexp.source, "gmi");
+	tojregexp = new RegExp(tojregexp.source, "gmui");
 }
 else
 {
-	tojregexp = new RegExp(tojregexp.source, "gm");
+	tojregexp = new RegExp(tojregexp.source, "gmu");
 	}
 
 		
@@ -296,10 +265,8 @@ else
 		
 		
 		var pageczekraren = new Array();
-		var recursivaczekraren = new Array();
 		
 		var pageczekrarenprimar;
-		//var recursivaczekrarenprimar;
 		if (document.getElementById("whetherczekrprimar").checked)
 		{
 				pageczekrarenprimar = true;
@@ -309,15 +276,6 @@ else
 			pageczekrarenprimar = false;
 			}
 			
-		//if (document.getElementById("recursivaczekrprimar").checked)
-		//{
-		//		recursivaczekrarenprimar = true;
-		//}
-		//else
-		//{
-		//	recursivaczekrarenprimar = false;
-		//	}
-			
 		
 		if (document.getElementById("whetherczekr0").checked)
 		{
@@ -326,17 +284,6 @@ else
 		else
 		{
 			pageczekraren.push(false);
-			}
-			
-			
-			
-		if (document.getElementById("recursivaczekr0").checked)
-		{
-				recursivaczekraren.push(true);
-		}
-		else
-		{
-			recursivaczekraren.push(false);
 			}
 			
 			var probbiar = 0;
@@ -358,14 +305,6 @@ else
 		{
 			pageczekraren.push(false);
 			}
-			if (document.getElementById("recursivaczekr"+ijtoj.toString()).checked)
-		{
-				recursivaczekraren.push(true);
-		}
-		else
-		{
-			recursivaczekraren.push(false);
-			}
 			
 			
 			
@@ -375,46 +314,16 @@ else
 	
 	
 	
-		var typusderecherche=null;
-		if (document.getElementById("okkuranznumbarsvicz").checked=true)
-		{
-			typusderecherche=0;
-		}
+		
+	
 		
 	
 	
-	var limitnumbartogrogon =  document.getElementById("pagesnumbar").value;
-		
-	//console.log("reading finished"+limitnumbartogrogon);
-	
-	var resultantes= new Map();
-	
-		resultantes = await zpracovatvszechnyetapy(prefixadressa,fetchadressa,pagelinken,tojregexp,pageczekrarenprimar,pageczekraren,recursivaczekraren,typusderecherche,limitnumbartogrogon);
-		
-		
-		var poslednej = document.getElementById("resultantesparagraph");
+		xhr = await executarfetch(prefixadressa+fetchadressa);
 		
 		
 		
-		var tojnaszkeyarray = resultantes.keys();
-		var novyelemm;
 		
-		novyelemm = tojnaszkeyarray.next().value;
-		
-		//console.log("beginning output");
-		//console.log(resultantes.size);
-		
-		while (novyelemm!=null)
-		{
-		poslednej.appendChild(document.createTextNode(novyelemm));
-		//console.log(novyelemm);
-		poslednej.appendChild(document.createTextNode(" "));
-		poslednej.appendChild(document.createTextNode(resultantes.get(novyelemm)));
-		//console.log(resultantes.get(novyelemm));
-		poslednej.appendChild(document.createTextNode('\r\n'));
-		
-		novyelemm = tojnaszkeyarray.next().value;
-		}
 		
 		
 		

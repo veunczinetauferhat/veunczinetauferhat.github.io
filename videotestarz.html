@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script type="text/javascript" src='veunczinetauferhat_scripts/pagefetchscript.js'></script>
+<script type="text/javascript" src='videotestarz_scripts/searchovacz.js'></script>
+<title>Videotestarz</title>
+</head>
+<body>
+	
+	
+	
+	<p id="prefixparagraph">
+<input type="text" name="prefixadressa" id="prefixadressa" placeholder="Prefix URL" size="55" value="https://cors-anywhere.herokuapp.com/">
+
+</p>
+
+
+<p id="regexpparagraph">
+<input type="text" name="regexpfield" id="regexpfield" placeholder="Put Your RegExp Here" size="55" value="">
+
+</p>
+
+<p id="tojnaszboutonparagraph">
+	<button type="submit" onclick="testaovar()">Execute</button> 
+</p>
+
+<p id="testovaciposledniparagraf">
+	
+</p>
+	
+	
+	
+
+	
+	
+
+
+
+
+
+<script>
+
+
+
+
+async function testaovar()
+{
+	//console.log("testaovar");
+	let trottor = await tojNaszFetch(document.getElementById("prefixadressa").value);
+	
+	//var taTextovaNoda1 = document.createTextNode(trottor);
+	//document.getElementById("testovaciposledniparagraf").appendChild(taTextovaNoda1);
+	
+	
+	
+	let tojbravovyregexp = new RegExp(document.getElementById("regexpfield").value);
+	
+	//console.log(trottor);
+	let resultanta = searchovacztext(tojbravovyregexp,trottor,false);
+	
+	
+	var taTextovaNoda = document.createTextNode(resultanta);
+	document.getElementById("testovaciposledniparagraf").appendChild(taTextovaNoda);
+	
+	
+}
+
+
+async function tojNaszFetch(fetchadressa)
+{
+	//console.log("tojNaszFetch");
+	
+	
+	try
+		{
+		let xhr = await executarfetch(fetchadressa);
+		
+		//console.log("fetchadressa finishes successfully");
+		
+		
+		//return xhr;
+		// document.write(xhr);
+		return xhr;
+	}
+	catch(er)
+	{
+		//console.log("fetchadressa finishes with error");
+		
+		//console.log(er.message);
+		return er.toString();
+		
+		}
+	
+}
+
+	
+</script>
+	
+	
+	
+</body>
+</html>

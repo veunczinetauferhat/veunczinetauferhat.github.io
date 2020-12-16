@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<!--script type="text/javascript" src='veunczinetauferhat_scripts/pagefetchscript.js'></script>
+<script type="text/javascript" src='veunczinetauferhat_scripts/searchtextscript.js'></script>
+<script type="text/javascript" src='veunczinetauferhat_scripts/searchtextscripthfyffar.js'></script>
+<script type="text/javascript" src='veunczinetauferhat_scripts/arrayscript.js'></script>
+<script type="text/javascript" src='veunczinetauferhat_scripts/hrefmacharz.js'></script>
+<script type="text/javascript" src='veunczinetauferhat_scripts/offscreencanvastest.js'></script>
+<script type="text/javascript" src='veunczinetauferhat_scripts/testscript.js'></script>
+
+<!--<script type="text/javascript" src='veunczinetauferhat_scripts/'></script>-->
+
+
+<script type="text/javascript" src='lazysearch_scripts/letterprzebor.js'></script>
+<script type="text/javascript" src='lazysearch_scripts/pagefetchscript.js'></script>
+<script type="text/javascript" src='lazysearch_scripts/textsearchscript.js'></script>
+<script type="text/javascript" src='lazysearch_scripts/elementmonglingscript.js'></script>
+<script type="text/javascript" src='lazysearch_scripts/elementvaluesscript.js'></script>
+
+
+
+
+<title>Testing Page</title>
+</head>
+<body>
+<h1>Testing Page</h1>   
+
+
+<!---<p id="examplovaci">Example</p>    --->
+
+<!---<input type="button" id="buttona1" value="Test" onclick="naladiet()">--->
+
+<div id="sdrzenarz0">
+
+<div id="divstrocka0">
+	<input type="text" id="strockexp0" placeholder="String Element" size="30">
+	<input type="text" id="iterexp0" placeholder="Iterating Element" size="20">
+	<input type="number" step="1" min="0" max="100" value="1" id="numbarisexp0" size="3">
+	<input type="checkbox" id="strockaczekr0" defaultChecked="false" onclick="nextstringprocedur(0)">Next string element
+	
+	
+	</div>
+	
+	</div>
+	<div id="sdrzenarz1">
+	
+	<div id="divregexp0">
+		<input type="text" id="regolerexp0" placeholder="Regular Expression" size="50">
+		<input type="checkbox" id="regolerczekr0" defaultChecked="false" onclick="nextregexpprocedur(0)">Next Regular Expression
+		
+		</div>
+
+</div>
+
+<div id="knopkarz0">
+	
+	<input type="number" step="1" min="0" max="999999" value="1" id="iteraciunlimit" size="7">Iteration Limit
+	<input type="button" id="buttonia0" value="Execute" onclick="getsearchedpointsdokument()">
+	
+	</div>
+	
+	
+	<div id="indikator0">
+	
+	</div>
+	
+	<div id="tojoutput0">
+		
+		
+		</div>
+		
+
+
+
+
+<!--<p id="prefixparagraph">
+<input type="text" name="prefixadressa" id="prefixadressa" placeholder="Prefix URL" size="55" value="https://cors-anywhere.herokuapp.com/">
+
+</p>
+<!--<p id="prefixbuttonparagraph">-->
+<!--<button type="submit" size="40" onclick="etandardvalueprefix('https://cors-anywhere.herokuapp.com/')">https://cors-anywhere.herokuapp.com/</button>-->
+<!--</p>-->
+<!--https://cors-anywhere.herokuapp.com/-->
+<!--<p id="fetchadressaparagraph">
+<input type="text" name="fetchadressa" id="fetchadressa" placeholder="Core URL" size="55">
+<input type="checkbox" name="whetherczekrprimar" id="whetherczekrprimar" defaultChecked="false" >Check this page
+
+</p>
+<p id="czejnerparagraph0">
+<input type="text" name="pagelinken0" id="pagelinken0" placeholder="Page Links (Regular Expression)" size="55">
+<input type="checkbox" name="linkenczejner0" id="linkenczejner0" onclick="czekarz(0)"  defaultChecked="false" >Next chain
+<input type="checkbox" name="whetherczekr0" id="whetherczekr0" defaultChecked="false"  >Check these pages
+<input type="checkbox" name="recursivaczekr0" id="recursivaczekr0" defaultChecked="false">Recursive
+</p>
+
+<p id="regexpparagraph">
+<input type="text" name="tojregexp" id="tojregexp" placeholder="Search Item (Regular Expression)" size="55">
+<input type="checkbox" name="bigsmallregister" id="bigsmallregister" defaultChecked="false">Ignore case
+</p>
+
+<p>
+ <button onclick="testoarOffscreenCanvas()">Test</button> 
+</p>
+
+<p id="presearchtypekindparagraph">
+	Search type:
+</p>
+
+<p id="searchtypekindparagraph">
+	<input type="radio" id="okkuranznumbarsvicz" name="okkuranznumbarsvicz" value="occurencenumber" name="tensearchtypekind" checked="true">Number of occurances in pages
+</p>
+
+
+
+<p id="pagesnumberlimiterparagraph">
+
+	<input type="number" id="pagesnumbar" name="pagesnumbar" min="1" step="1" value="16">Maximum number of searched pages
+</p>
+
+<p id="tojnaszboutonparagraph">
+	<button type="submit" onclick="executar_pre()">Execute</button> 
+</p>
+<p id="resultantesparagraph">
+	
+<!--</p>-->
+<script>
+
+//let naszLetterPrzebor = new letterSequenceGenerator("0123456789",5);
+
+
+let naszLetterPrzebor = new letterSequenceGenerator(new Array("sequence1","sequence2"),new Array("0123456789","abcdef"),new Array(1,1));
+	
+	
+	var stringfronta = 0;
+	var regexpfronta = 0;
+	
+	
+function nextstringprocedur(otvid)
+{
+	console.log("nextstringprocedur");
+	let elemenz = document.getElementById("strockaczekr"+otvid.toString());
+	if (elemenz.checked==true)
+	{
+		//stringfronta++;
+		//alert(stringfronta);
+		//stringfronta=otvid+1;
+		if (otvid+1>stringfronta)
+		{
+			for (let ijt=stringfronta+1; ijt<=otvid+1; ijt++)
+			{
+				addendarstringprocedur(ijt);
+			}
+		}
+		else
+		{
+			for (let ijt=otvid+2; ijt<=stringfronta; ijt++)
+			{
+				rimoverestringprocedur(ijt);
+			}
+		}
+		stringfronta = otvid +1;
+		
+		
+	}
+	else
+	{
+		//stringfronta--;
+		//alert(stringfronta);
+		//stringfronta=otvid;
+		if (otvid>stringfronta)
+		{
+			for (let ijt=stringfronta+1; ijt<=otvid; ijt++)
+			{
+				addendarstringprocedur(ijt);
+			}
+		}
+		else
+		{
+			for (let ijt=otvid+1; ijt<=stringfronta; ijt++)
+			{
+				rimoverestringprocedur(ijt);
+			}
+		}
+		stringfronta = otvid;
+	}
+	
+	
+	
+}	
+
+
+function addendarstringprocedur(numero)
+{
+	console.log("addendarstringprocedur"+numero.toString());
+	//<div id="divstrocka0">
+	//<input type="text" id="strockexp0" placeholder="String Element" size="30">
+	//<input type="text" id="iterexp0" placeholder="Iterating Element" size="20">
+	//<input type="number" step="1" min="0" max="100" value="1" id="numbarisexp0" size="3">
+	//<input type="checkbox" id="strockaczekr0" defaultChecked="false" onclick="nextstringprocedur(0)">Next string element
+	
+	addendarelementinsidelast("divstrocka"+numero.toString(),"sdrzenarz0","div");
+	
+	var localisStrockExp= document.createElement("input");
+	localisStrockExp.type = "text";
+	localisStrockExp.id = "strockexp"+numero.toString();
+	localisStrockExp.placeholder="String Element";
+	localisStrockExp.size="30";
+	addendarelementinsidelasthotovy(localisStrockExp,"divstrocka"+numero.toString());
+	
+	var localisIterExp= document.createElement("input");
+	localisIterExp.type="text";
+	localisIterExp.id="iterexp"+numero.toString();
+	localisIterExp.placeholder="Iterating Element";
+	localisIterExp.size="20";
+	addendarelementinsidelasthotovy(localisIterExp,"divstrocka"+numero.toString());
+	
+	var localisNumbarisExp= document.createElement("input");
+	localisNumbarisExp.type="number";
+	localisNumbarisExp.step="1";
+	localisNumbarisExp.min="0";
+	localisNumbarisExp.max="100";
+	localisNumbarisExp.value="1";
+	localisNumbarisExp.id="numbarisexp"+numero.toString();
+	localisNumbarisExp.size="3";
+	addendarelementinsidelasthotovy(localisNumbarisExp,"divstrocka"+numero.toString());
+	
+	var localisStrockaCzekr = document.createElement("input");
+	localisStrockaCzekr.type="checkbox";
+	localisStrockaCzekr.id="strockaczekr"+numero.toString();
+	localisStrockaCzekr.defaultChecked=false;
+	localisStrockaCzekr.onclick=function(){nextstringprocedur(numero);};
+	addendarelementinsidelasthotovy(localisStrockaCzekr,"divstrocka"+numero.toString());
+	
+	
+	
+	
+	
+	//addendarelementinsidelasthotovy
+	
+}
+
+function rimoverestringprocedur(numero)
+{
+	console.log("rimoverestringprocedur"+numero.toString());
+	//let elemenz = document.getElementById("strockaczekr"+numero.toString());
+	rimovereelement("divstrocka"+numero.toString());
+}
+
+
+function nextregexpprocedur(otvid)
+{
+	
+	console.log("nextregexpprocedur");
+	
+	let elemenz = document.getElementById("regolerczekr"+otvid.toString());
+	if (elemenz.checked==true)
+	{
+		//regexpfronta++;
+		//alert(regexpfronta);
+		
+		if (otvid+1>regexpfronta)
+		{
+			for (let ijt=regexpfronta+1; ijt<=otvid+1; ijt++)
+			{
+				addendarregexpprocedur(ijt);
+				
+			}
+		}
+		else
+		{
+			for (let ijt=otvid+2; ijt<=regexpfronta; ijt++)
+			{
+				rimovereregexpprocedur(ijt);
+				
+			}
+		}
+		regexpfronta = otvid +1;
+		
+	}
+	else
+	{
+		//regexpfronta--;
+		//alert(regexpfronta);
+		if (otvid>regexpfronta)
+		{
+			for (let ijt=regexpfronta+1; ijt<=otvid; ijt++)
+			{
+				addendarregexpprocedur(ijt);
+				
+			}
+		}
+		else
+		{
+			for (let ijt=otvid+1; ijt<=regexpfronta; ijt++)
+			{
+				rimovereregexpprocedur(ijt);
+				
+			}
+		}
+		regexpfronta = otvid;
+	}
+	
+	
+}
+
+function addendarregexpprocedur(numero)
+{
+	console.log("addendarregexpprocedur"+numero.toString());
+	addendarelementinsidelast("divregexp"+numero.toString(),"sdrzenarz1","div");//??
+	//document.createDocument("input");
+	
+	var localisRegolerExp= document.createElement("input");
+	localisRegolerExp.type = "text";
+	localisRegolerExp.id = "regolerexp"+numero.toString();
+	localisRegolerExp.placeholder="Regular Expression";
+	localisRegolerExp.size="50";
+	addendarelementinsidelasthotovy(localisRegolerExp,"divregexp"+numero.toString());
+	
+	var localisRegolerCzekr= document.createElement("input");
+	localisRegolerCzekr.type = "checkbox";
+	localisRegolerCzekr.id = "regolerczekr"+numero.toString();
+	localisRegolerCzekr.defaultChecked=false;
+	localisRegolerCzekr.onclick=function(){nextregexpprocedur(numero);};
+	addendarelementinsidelasthotovy(localisRegolerCzekr,"divregexp"+numero.toString());
+	
+	
+	
+	//addendarelementinsidelast("regolerexp"+numero.toString(),"divregexp"+numero.toString(),"input")
+	//<input type="text" id="regolerexp0" placeholder="Regular Expression" size="50">
+	//<input type="checkbox" id="regolerczekr0" defaultChecked="false" onclick="nextregexpprocedur(0)">Next Regular Expression
+}
+
+function rimovereregexpprocedur(numero)
+{
+	console.log("rimovereregexpprocedur"+numero.toString());
+	rimovereelement("divregexp"+numero.toString());
+}
+	
+	
+	
+	
+	
+	
+	
+function naladiet()
+{
+	naszLetterPrzebor.zdvihnoutVprzed();
+	alert(naszLetterPrzebor.ritornare());
+
+
+}
+
+
+
+
+
+//async function getsearchedpoint(sitenamen, tojregexp)
+//{
+	//let textoj=await executarfetch(sitenamen);
+	//let resulta = await searchtextscriptfirstinstance(tojregexp, textoj);
+	//return resulta;
+	
+	
+	function zapsatsearchedpoint(textovoj)
+{
+	
+		//todo
+		//document.getElementById("tojoutput0").innerHTML = document.getElementById("tojoutput0").innerHTML+'\r\n'+textovoj;
+		
+		var tojsta=document.createElement("p");
+		tojsta.innerHTML=textovoj;
+		document.getElementById("tojoutput0").appendChild(tojsta);
+		
+}
+
+async function getsearchedpointsdokument()
+{
+	
+	document.getElementById("indikator0").innerHTML = "Gathering";
+		//await getsearchedpoints();
+		
+		//<input type="text" id="strockexp0" placeholder="String Element" size="30">
+	//<input type="text" id="iterexp0" placeholder="Iterating Element" size="20">
+	//<input type="number" step="1" min="0" max="100" value="1" id="numbarisexp0" size="3">
+	//<input type="checkbox" id="strockaczekr0" defaultChecked="false" onclick="nextstringprocedur(0)">Next string element
+	
+	
+	
+		//<input type="text" id="regolerexp0" placeholder="Regular Expression" size="50">
+		//<input type="checkbox" id="regolerczekr0" defaultChecked="false" onclick="nextregexpprocedur(0)">Next Regular Expression
+		
+		
+		let strockiarray = new Array();
+		let sequentialsarray = new Array();
+		let numbararray = new Array();
+		let regexparray = new Array();
+		let limitovynumbar=document.getElementById("iteraciunlimit").value;
+		for (let ijt=0; ijt<=stringfronta; ijt++)
+		{
+			strockiarray.push(document.getElementById("strockexp"+ijt.toString()).value);
+			sequentialsarray.push(document.getElementById("iterexp"+ijt.toString()).value);
+			numbararray.push(document.getElementById("numbarisexp"+ijt.toString()).value);
+			
+		}
+		for (let ijt=0; ijt<=regexpfronta; ijt++)
+		{
+				regexparray.push(new RegExp(document.getElementById("regolerexp"+ijt.toString()).value,""));
+		}
+		await getsearchedpoints(strockiarray,sequentialsarray,numbararray,regexparray,limitovynumbar);
+		
+		
+		
+	
+}
+
+async function getsearchedpoints(strockiarray,sequentialsarray,numbararray,regexparray,limitovynumbar)
+{
+	let jestlinenull=false;
+	if (((limitovynumbar>0)&&(regexparray.length>0))&&((strockiarray.length>0)||((sequentialsarray.length>0)&&(numbararray.length>0))))
+	{
+			let tenNaszLetterSequenceGenerator = new letterSequenceGenerator(strockiarray,sequentialsarray,numbararray);
+			let ojtrens;
+			let searchois = new Array(regexparray.length);
+			let textuv = "";
+			let textuv1;
+			for (let ijt=0; ijt<limitovynumbar; ijt++)
+			{
+				jestlinull=true;
+				textuv="";
+					ojtrens = tenNaszLetterSequenceGenerator.ritornare();
+					textojs = await executarfetch(ojtrens);
+					textuv=textuv+ojtrens+":";
+					for (let ejt=0; ejt<regexparray.length; ejt++)
+					{
+							searchois[ejt] = await searchtextscriptfirstinstance(regexparray[ejt],textojs);
+							if ((searchois[ejt]!="")&&(searchois[ejt]!=null))
+							{
+							jestlinull=false;	
+							}
+							textuv=textuv+" --- "+searchois[ejt];
+							//console.log(searchois[ejt]);
+					}
+					
+					textuv1=textuv;
+					if (jestlinull==false)
+					{
+					zapsatsearchedpoint(textuv1);
+					}
+					tenNaszLetterSequenceGenerator.zdvihnoutVprzed();//searchtextscriptfirstinstance
+					document.getElementById("indikator0").innerHTML = "Processing"+ijt.toString();
+			}
+		document.getElementById("indikator0").innerHTML = "Finished";
+	}
+	else
+	{
+			zapsatsearchedpoint("");
+			document.getElementById("indikator0").innerHTML = "Finished";
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+</script>
+</body>
+</html>
